@@ -1,0 +1,44 @@
+#!/bin/bash
+
+git_config()
+{
+    # local gitconfig http://stackoverflow.com/a/13615531/89484
+    GITCONFIG_LOCAL=~/.gitconfig.local
+    echo "Enter git username:"
+    read GIT_USERNAME
+    git config --file $GITCONFIG_LOCAL user.name "$GIT_USERNAME"
+    echo "Enter git email:"
+    read GIT_EMAIL
+    git config --file $GITCONFIG_LOCAL user.email $GIT_EMAIL
+}
+
+create_symlinks()
+{
+    FILENAMES=(.aliases .functions .bashrc .gitconfig .tmux.conf .vimrc .vim .vimwiki) # vim
+    EXIST=()
+    for f in ${FILENAMES[@]}; do
+        if [ -e ~/$f ] || [ -L ~/$f ]; then
+            EXIST+=($f)
+            # EXIST+=($f.bak)
+            # mv -b ~/$f ~/$f.bak
+        else
+            ln -s $PWD/$f ~/$f
+        fi
+    done
+
+    echo "Please review the backups of already existing dotfiles:"
+    echo "${EXIST[*]}"
+    echo "you can add these customizations and push to dotfile repo"
+}
+
+main()
+{
+    git_config
+    create_symlinks
+    # init dotfiles submodules so don't need --recursive flag during clone
+    git submodule update --init
+    vim +PluginInstall +qall
+}
+
+main
+

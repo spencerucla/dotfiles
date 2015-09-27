@@ -1,0 +1,26 @@
+# Essentials
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install vim git rsync tmux tree htop xpad
+
+# Chrome
+sudo apt-get install libcurl3 # but this didn't work so had to run `sudo apt-get -f install`
+sudo apt-get install libxss1 libappindicator1 libindicator7 # actually just libappindicator1
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo dpkg -i google-chrome*.deb
+# login to chrome to sync bookmarks
+rm google-chrome-stable_current_amd64.deb
+
+# Fix AMD drivers...
+sudo apt-get remove --purge fglrx fglrx-amdcccle fglrx-updates fglrx-amdcccle-updates
+# reboot
+sudo apt-get install linux-headers-generic
+sudo apt-get install fglrx-updates fglrx-amdcccle-updates
+sudo aticonfig --adapter=all --initial
+# reboot
+fglrxinfo
+
+# Configs
+sudo update-alternatives --config editor
+sudo apt-get install dconf-cli
+dconf write /org/cinnamon/settings-daemon/plugins/power/lid-close-suspend-with-external-monitor true

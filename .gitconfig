@@ -1,0 +1,36 @@
+[color]
+    ui = auto
+[core]
+    editor = vim
+[alias]
+    b = branch
+    c = commit
+    ca = commit --amend
+    can = commit --amend --no-edit
+    co = checkout
+    cp = cherry-pick
+    cpa = cherry-pick --abort
+    cpc = cherry-pick --continue
+    d = diff
+    ds = diff --staged
+    fo = fetch origin
+    hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+    l = log
+    lo = log --oneline
+    lol = log --pretty=format:\"%C(yellow)%h%Creset %cd [%<(10,trunc)%an] %s\" --date=short
+    logra = log --oneline --graph
+    r = rebase
+    ra = rebase --abort
+    rc = rebase --continue
+    ri = rebase -i
+    sb = show-branch
+    sh = show
+    st = status -s --branch
+    sta = status
+[push]
+    default = matching
+[http]
+    cookiefile = ~/.gitcookies
+
+[include]
+    path = ~/.gitconfig.local
