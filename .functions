@@ -22,12 +22,12 @@ mcd() {
   fi
 }
 
-# Vim+find: "v <filename>" doesn't need path prefix
+# Vim+find: "v <partial-filename> [c|h|java]" doesn't need path prefix
 v() {
   if [ -e $1 ]; then
     vim $1
   else
-    local file=$(find . -name $1)
+    local file=$(find . -name "$1*$2")
     local count=$(echo -n "$file" | grep -c "^")
     if [ "$count" -eq "1" ]; then
       vim $file
