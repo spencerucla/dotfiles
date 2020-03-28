@@ -12,9 +12,20 @@ git_config()
     git config --file $GITCONFIG_LOCAL user.email $GIT_EMAIL
 }
 
+hg_config()
+{
+    HGRC_LOCAL=~/.hgrc.local
+    echo "Enter hg username:"
+    read HG_USERNAME
+    echo "Enter hg email:"
+    read HG_EMAIL
+    echo "[ui]" >> $HGRC_LOCAL
+    echo "username = $HG_USERNAME <$HG_EMAIL>" >> $HGRC_LOCAL
+}
+
 create_symlinks()
 {
-    FILENAMES=(.aliases .functions .bashrc .gitconfig .tmux.conf .vimrc .vim .vimwiki) # vim
+    FILENAMES=(.aliases .functions .bashrc .gitconfig .hgrc .tmux.conf .vimrc .vim .vimwiki) # vim
     EXIST=()
     for f in ${FILENAMES[@]}; do
         if [ -e ~/$f ] || [ -L ~/$f ]; then
@@ -34,6 +45,7 @@ create_symlinks()
 main()
 {
     git_config
+    hg_config
     create_symlinks
     # init dotfiles submodules so don't need --recursive flag during clone
     git submodule update --init

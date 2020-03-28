@@ -1,0 +1,21 @@
+[alias]
+blame = annotate -uc
+c = commit
+ca = commit --amend
+lol = log --template "{label('custom.rev',node|short)} [{pad(fill(author|person, 10)|firstline, 10)}] {desc|firstline}\n"
+ra = rebase --abort
+rc = rebase --continue
+remaster = rebase -s $1 -d remote/master
+res = resolve --mark --all
+phab = !$HG log -r $1 -v | sed -n 's/Differential Revision: \(.*\)/\1/p' | xargs open
+sh = log -pvr
+sls = ssl
+
+[extensions]
+color =
+churn =
+
+[color]
+custom.rev = yellow
+
+%include ~/.hgrc.local
