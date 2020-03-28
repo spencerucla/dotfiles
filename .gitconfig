@@ -27,6 +27,7 @@
     sh = show
     st = status -s --branch
     sta = status
+    supir = submodule update --init --recursive
 [push]
     default = matching
 [http]
