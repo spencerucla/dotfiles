@@ -50,6 +50,7 @@ main()
     # init dotfiles submodules so don't need --recursive flag during clone
     git submodule update --init
     vim +PluginInstall +qall
+    ./.vim/bundle/fzf/install --all # TODO: remove if Vundle supports post-checkout hook for install scripts
 }
 
 main

@@ -1,7 +1,7 @@
 # Essentials
 sudo apt-get update
 sudo apt-get upgrade
-sudo apt-get install vim git rsync tmux tree htop xpad silversearcher-ag
+sudo apt-get install vim git rsync tmux tree htop xpad silversearcher-ag fd-find
 
 # Chrome
 sudo apt-get install libcurl3 # but this didn't work so had to run `sudo apt-get -f install`

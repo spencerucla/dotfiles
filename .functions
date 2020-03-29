@@ -22,20 +22,11 @@ mcd() {
   fi
 }
 
-# Vim+find: "v <partial-filename> [c|h|java]" doesn't need path prefix
+# # Vim+fzf: "v" type filename into searchbar
 v() {
-  if [ -e $1 ]; then
-    vim $1
-  else
-    local file=$(find . -name "$1*$2")
-    local count=$(echo -n "$file" | grep -c "^")
-    if [ "$count" -eq "1" ]; then
-      vim $file
-    else
-      echo "$count file(s) found"
-      echo "$file"
-    fi
-  fi
+  local file
+  file=$(fzf)
+  [ -n "$file" ] && vim "$file"
 }
 
 findany() {

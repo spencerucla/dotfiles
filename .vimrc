@@ -21,6 +21,8 @@ Plugin 'tpope/vim-fugitive'
 " Plugin 'vim-airline/vim-airline'
 " Plugin 'rustushki/JavaImp.vim'
 Plugin 'akhaku/vim-java-unused-imports'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
 call vundle#end()
 filetype plugin on " TODO: maybe add indent between plugin and on
 
@@ -125,6 +127,8 @@ augroup END
 " If file is in kernel directory, use 8 character wide tabs for indentation
 " https://www.kernel.org/doc/Documentation/CodingStyle
 autocmd BufRead,BufNewFile */kernel/* setlocal tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
+
+command F tabe <bar> FZF
 
 " TODO: go thru these
 " "
