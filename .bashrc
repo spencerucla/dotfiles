@@ -103,13 +103,6 @@ alias l='ls -CF'
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-# Source .env file to set ENV variable to configure proper aliases/functions.
-# Should contain the following line
-# export ENV=<env>
-if [ -f ~/.env ]; then
-    . ~/.env
-fi
-
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -122,16 +115,6 @@ fi
 if [ -f ~/.functions ]; then
     . ~/.functions
 fi
-
-# ======================================================================
-
-# $ENV should be set in setup script
-if [ "$ENV" = "HOME" ]; then
-    export PATH=$PATH:$HOME/Documents/code/raspberrypi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin
-    export PATH=$PATH:/opt/android-studio/bin
-fi
-
-# ======================================================================
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
