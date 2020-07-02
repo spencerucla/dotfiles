@@ -75,27 +75,6 @@ SimpleHTTPServer.test()
 ' "$port"
 }
 
-# TODO: move to gitconfig alias
-# Git Push: "gp"
-# Push to gerrit to correct branch, whatever default remote branch is
-# Requires: must be run from inside existing repo
-gp() {
-  BRANCH=`repo forall . -c 'echo $REPO_RREV'`
-  if [ -z "$BRANCH" ]; then
-    echo "ERROR: branch name failed to parse"
-  else
-    git push origin HEAD:refs/for/$BRANCH
-  fi
-}
-
-# Build setup: "settop"
-# Requires: script must be run from top of code tree
-settop() {
-  export TOP=$(pwd)
-  . build/envsetup.sh
-  setpaths
-}
-
 # Find code top: "code_top"
 # If you keep all your code trees in any of the directories below (CODE_LOC#)
 # this will return 0 and print $TOP of the code tree you're in
@@ -136,18 +115,4 @@ tcd() {
     echo "ERROR: not in a code tree"
     return 1
   fi
-}
-
-# adb remount + disable-verity + reboot, k?
-# Everything needed in order to adb remount
-aardvark() {
-  adb root
-  adb disable-verity
-  adb reboot
-}
-
-# install_busybox on android
-install_busybox() {
-  adb push ~/tools/android-bin/busybox /system/bin
-  adb shell busybox --install /system/bin
 }

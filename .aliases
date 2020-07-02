@@ -21,36 +21,6 @@ alias psg="ps aux | grep -v grep | grep -e USER -e"
 alias rmevenlines="sed -n 'p;n'" # odd: n;p
 alias mirror_site="wget -m -p -E -k -K -np"
 alias fixtext="echo -e '\xF'"
-
-# AOSP build
-alias rs="repo sync -c -q -j4 --no-tags"
-  # -l for local is useful if already have automatic (cron) sync'ed with -n
-  # -d for detach is useful if topic branches were started with "repo start"
-# TODO: cleanup, move to gitconfig as alias?
-alias gpb="git branch -a | grep '\->'; repo forall . -c 'echo $REPO_RREV'"
-alias mp="mp 2>&1 | tee ~/logs/build/last.log"
-alias T="tcd"
-alias D="tcd device"
-alias K="tcd kernel"
-alias FB="tcd frameworks/base"
-alias FN="tcd frameworks/native"
-alias V="tcd vendor"
-
-# AOSP adb
-alias wait="adb wait-for-device"
-alias arfr="adb reboot forced-recovery"
-alias arb="adb reboot bootloader"
-alias asik="adb shell input keyevent"
-alias asit="adb shell input text"
 alias al="adb logcat"
 alias alg="adb logcat | grep"
 alias aldg="adb logcat -d | grep"
-alias llog="tee ~/logs/logcat/$(date '+%Y-%m-%d-%H%M')_logcat.log"
-alias all="adb logcat | llog"
-alias ams="adb shell am start -n" # <package>/.<Activity>
-alias adump="adb shell dumpsys" # [service|activity service <package>]
-# setprop log.tag.<TAG> V|''
-# settings get global <setting>
-alias uart="cu -s 115200 -l /dev/ttyUSB2"
-alias ulog="tee ~/logs/uart/$(date '+%Y-%m-%d-%H%M')_uart.log"
-alias uartl="uart | ulog"

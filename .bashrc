@@ -131,6 +131,10 @@ if [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then
   source /usr/local/etc/bash_completion.d/git-completion.bash
 fi
 
+if [ -f ~/dotfiles/aosp.sh ]; then
+  source ~/dotfiles/aosp.sh
+fi
+
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
