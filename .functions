@@ -22,19 +22,18 @@ mcd() {
   fi
 }
 
-# # Vim+fzf: "v" type filename into searchbar
+# Fd+fzf: "fcd [fuzzy-dir-pattern]"
+fcd() {
+  local dir
+  dir=$(fd -t d | fzf +m --query="$1")
+  [ -n "$dir" ] && cd "$dir"
+}
+
+# Vim+fzf: "v [fuzzy-file-pattern]"
 v() {
   local file
-  file=$(fzf)
+  file=$(fzf --query="$1" --select-1)
   [ -n "$file" ] && vim "$file"
-}
-
-findany() {
-  find . -iname '*'"$*"'*'
-}
-
-findquiet() {
-  find . -name "$1" 2>&1 | grep -v 'Permission denied'
 }
 
 # John Wick: "wick <name>"
