@@ -13,7 +13,6 @@ sls = ssl
 
 [extensions]
 color =
-churn =
 
 [color]
 custom.rev = yellow
