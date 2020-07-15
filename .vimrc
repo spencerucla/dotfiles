@@ -24,12 +24,13 @@ Plugin 'phleet/vim-mercenary'
 Plugin 'akhaku/vim-java-unused-imports'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
+Plugin 'udalov/kotlin-vim'
 call vundle#end()
 filetype plugin on " TODO: maybe add indent between plugin and on
 
 " VIM SETUP
 
-" ignore ftdetect, indent, syntax
+syntax on
 
 " Show line numbers
 set nu
