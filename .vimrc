@@ -137,7 +137,7 @@ command F tabe <bar> FZF
 " " Misc
 " "
 " set pastetoggle=<F2>
-" set ruler
+set ruler
 " au WinLeave * set nocursorline nocursorcolumn
 " au WinEnter * set cursorline cursorcolumn
 " set cursorline cursorcolumn
