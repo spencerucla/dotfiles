@@ -2,6 +2,7 @@
     ui = auto
 [core]
     editor = vim
+    excludesfile = ~/.gitignore_global
 [alias]
     b = branch
     c = commit

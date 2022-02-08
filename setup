@@ -25,7 +25,7 @@ hg_config()
 
 create_symlinks()
 {
-    FILENAMES=(.aliases .functions .bashrc .gitconfig .hgrc .tmux.conf .vimrc .vim .vimwiki) # vim
+    FILENAMES=(.aliases .functions .bashrc .gitconfig .gitignore_global .hgrc .tmux.conf .vimrc .vim .vimwiki) # vim
     EXIST=()
     for f in ${FILENAMES[@]}; do
         if [ -e ~/$f ] || [ -L ~/$f ]; then
