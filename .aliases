@@ -22,9 +22,6 @@ alias psg="ps aux | grep -v grep | grep -e USER -e"
 alias rmevenlines="sed -n 'p;n'" # odd: n;p
 alias mirror_site="wget -m -p -E -k -K -np"
 alias fixtext="echo -e '\xF'"
-alias al="adb logcat"
-alias alg="adb logcat | grep"
-alias aldg="adb logcat -d | grep"
 
 # simulate pbcopy with xclip
 alias pbcopy='xclip -selection clipboard'
