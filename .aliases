@@ -10,6 +10,7 @@ alias l='ls'
 alias mkdir='mkdir -pv'
 alias wget='wget -c'
 alias tree='tree -Csh'
+alias treed='tree -L'
 alias go="gnome-open"
 
 # Efficiency Prefs
