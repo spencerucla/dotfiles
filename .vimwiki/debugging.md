@@ -136,8 +136,8 @@ p = NULL;
 ### Refcounting
 
 The traces here were in reference counting and it always seemed like the
-resource was disappearing before we were done with it. That is a typical sign
-that there is need for reference counting. We could've used
+resource was disappearing before done with it. That is a typical sign that
+there is need for reference counting. We could've used
 kobject_get(&indio_dev->dev.kobj) / kobject_put(&indio_dev->dev.kobj)
 That seems to work, but iio_device_get/put also exist. Refcounting ensures that
 your resource doesn't disappear until you call put, then it can destroy the
@@ -182,4 +182,9 @@ adb shell pm disable <...>
 adb shell settings put system screen_off_timeout <...>
 adb shell ps -t -P -p # threads
 watch -n 0.5 "adb shell cat /proc/interrupts | grep irq"
+```
+
+### Apk version
+```sh
+aapt dump badging <apkfile> | grep version
 ```
