@@ -25,3 +25,7 @@ alias fixtext="echo -e '\xF'"
 alias al="adb logcat"
 alias alg="adb logcat | grep"
 alias aldg="adb logcat -d | grep"
+
+# simulate pbcopy with xclip
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
