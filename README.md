@@ -35,8 +35,7 @@ sudo update-alternatives --config editor
 ```
 
 ## TODOs
-- See TODOs in aliases and functions (and vimrc)
-- grep TODO .*
+- See TODOs in setup, .vimrc, aosp.sh
 - Use "local" for all local variables?
 
 ### gitconfig
