@@ -1,6 +1,8 @@
 # mah dotfiles
 
+```sh
 ./setup
+```
 
 ## (just some linux install notes)
 
