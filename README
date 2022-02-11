@@ -1,11 +1,45 @@
-= TODO =
-# See TODOs in aliases and functions (and vimrc)
-# grep TODO .*
-# Use "local" for all local variables?
-# .tmux.conf needs to work for both 1.7, 1.8, 2.6+
+# mah dotfiles
 
-= gitconfig =
+./setup
 
+## (just some linux install notes)
+
+```sh
+# essentials
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install vim git rsync tmux tree htop silversearcher-ag fd-find
+
+# chrome
+sudo apt-get install libcurl3 # but this didn't work so had to run `sudo apt-get -f install`
+sudo apt-get install libxss1 libappindicator1 libindicator7 # actually just libappindicator1
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo dpkg -i google-chrome*.deb
+# login to chrome to sync bookmarks
+rm google-chrome-stable_current_amd64.deb
+
+# adb
+sudo apt-get install libc6:i386 libstdc++6:i386 android-tools-adb
+
+# ssh
+sudo apt-get install openssh-server
+mkdir ~/.ssh
+chmod 700 ~/.ssh
+ssh-keygen -t rsa -f ~/.ssh/id_rsa -q -N ""
+ssh-copy-id <username>@<hostname>
+
+# configs
+sudo update-alternatives --config editor
+```
+
+## TODOs
+- See TODOs in aliases and functions (and vimrc)
+- grep TODO .*
+- Use "local" for all local variables?
+
+### gitconfig
+
+```
 alias git-root='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup || pwd`'
 
 [alias]
@@ -42,3 +76,4 @@ alias git-root='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show
             git commit --amend -m \"$(git log -1 --pretty=%B)\n\nCloses #$1.\"; \
         fi \
     }; f"
+```
